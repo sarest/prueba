@@ -156,8 +156,13 @@ void Functions::function_delete_circuit()
     mydoc->mycircuit->circuit_id.clear();
     mydoc->mycircuit->circuit_road_list.clear();
     mydoc->mycircuit->circuit_intersection_list.clear();
-
-    circuit_function->circuit_id.clear();
+    mydoc->intersection_list.clear();
+    mydoc->path_list.clear();
+    mydoc->rail_list.clear();
+    mydoc->road_list.clear();
+    mydoc->signal_list.clear();
+    circuit_function=mydoc->mycircuit;
+    /*circuit_function->circuit_id.clear();
     circuit_function->circuit_road_list.clear();
-    circuit_function->circuit_intersection_list.clear();
+    circuit_function->circuit_intersection_list.clear();*/
 }

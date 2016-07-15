@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view->scene->addLine(0,0,0,10,penpoint);
     view->scene->addLine(0,0,-10,0,penpoint);
     view->scene->addLine(0,0,0,-10,penpoint);
+
     ui->main_layout->addWidget(view);
 }
 
@@ -159,6 +160,7 @@ void MainWindow::on_bTest_clicked()
 {
     qDebug()<<"test out";
     //prueba para new commit
+    //prueba para pull
 }
 
 

@@ -158,7 +158,11 @@ void MainWindow::wheelEvent(QWheelEvent *event)
 void MainWindow::on_bTest_clicked()
 {
     qDebug()<<"test out";
+    //prueba para new commit
 }
+
+
+
 
 /*float radius = ui->radius->text().toFloat();
 float length = ui->length->text().toFloat();

@@ -160,9 +160,6 @@ void MainWindow::on_bTest_clicked()
     qDebug()<<"test out";
 }
 
-
-
-
 /*float radius = ui->radius->text().toFloat();
 float length = ui->length->text().toFloat();
 float x0 = ui->start_x->text().toFloat();

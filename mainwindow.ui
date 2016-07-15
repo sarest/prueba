@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>838</width>
+    <height>601</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0" colspan="2">
+     <layout class="QGridLayout" name="main_layout">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="laydraw">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="bRect">
+          <property name="text">
+           <string>Draw Rect</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="y0_value"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="x1_value"/>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="y1_value"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="x0_label">
+            <property name="text">
+             <string>Start Point</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="y0_label">
+            <property name="text">
+             <string>End Point</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="x0_value"/>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="bCurve">
+          <property name="text">
+           <string>Draw Curve</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="radius"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Arc Length</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Start Point</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="start_x"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="length"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Radius</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="start_y"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="bSave">
+      <property name="text">
+       <string>SAVE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="bLoad">
+      <property name="text">
+       <string>LOAD</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="title_label">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>MAIN TITLE</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="bClear">
+      <property name="text">
+       <string>CLEAR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="bTest">
+      <property name="text">
+       <string>TEST</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>838</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>x0_value</tabstop>
+  <tabstop>y0_value</tabstop>
+  <tabstop>x1_value</tabstop>
+  <tabstop>y1_value</tabstop>
+  <tabstop>start_x</tabstop>
+  <tabstop>start_y</tabstop>
+  <tabstop>length</tabstop>
+  <tabstop>radius</tabstop>
+  <tabstop>bRect</tabstop>
+  <tabstop>bCurve</tabstop>
+  <tabstop>bLoad</tabstop>
+  <tabstop>bSave</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

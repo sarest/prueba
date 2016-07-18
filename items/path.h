@@ -9,6 +9,7 @@ public:
     Path();
     QString path_id;
     QStringList path_parameters;
+    QStringList path_types;
     QStringList path_values;
 };
 

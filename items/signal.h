@@ -10,6 +10,7 @@ public:
     Signal();
     QString signal_id;
     QStringList signal_parameters;
+    QStringList signal_types;
     QStringList signal_values;
 };
 

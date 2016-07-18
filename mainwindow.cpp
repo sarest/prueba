@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    view->setBackgroundBrush(QBrush(QPixmap(":/imgs/grid.png")));
+    view->scene->setBackgroundBrush(QBrush(QPixmap(":/imgs/grid.png")));
     QPen penpoint(Qt::red,1,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     view->scene->addLine(0,0,10,0,penpoint);
     view->scene->addLine(0,0,0,10,penpoint);
@@ -42,7 +42,7 @@ void MainWindow::on_bRect_clicked()
     y1 = ui->y1_value->text().toFloat();
 
     QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
-    view->scene->addLine(x0,-y0,x1,-y1,pen);
+    view->scene->addLine(x0*10,-y0*10,x1*10,-y1*10,pen);
     myfunctions->function_save_rect(x0,y0,x1,y1);
     myfunctions->function_rect_calculations(x0,y0,x1,y1);
 
@@ -66,8 +66,8 @@ void MainWindow::on_bCurve_clicked()
     float radius = ui->radius->text().toFloat();
     QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     QPainterPath arc_path;
-    arc_path.moveTo(ui->start_x->text().toFloat(),-ui->start_y->text().toFloat());
-    arc_path.arcTo(myfunctions->x_displace,-myfunctions->y_displace,radius*2,radius*2,
+    arc_path.moveTo(ui->start_x->text().toFloat()*10,-ui->start_y->text().toFloat()*10);
+    arc_path.arcTo(myfunctions->x_displace*10,-myfunctions->y_displace*10,radius*20,radius*20,
                    myfunctions->start_angle_degrees,myfunctions->spanAngle_degrees);
     view->scene->addPath(arc_path,pen);
 
@@ -75,13 +75,13 @@ void MainWindow::on_bCurve_clicked()
     final_point = arc_path.pointAtPercent(1);
     QString status_text;
     status_text.append("Final point: (");
-    status_text.append(QString::number(final_point.rx()));
+    status_text.append(QString::number(final_point.rx()/10));
     status_text.append(",");
-    status_text.append(QString::number(-final_point.ry()));
+    status_text.append(QString::number(-final_point.ry()/10));
     status_text.append(")");
     ui->statusBar->showMessage(status_text);
-    ui->x0_value->setText(QString::number(final_point.rx()));
-    ui->y0_value->setText(QString::number(-final_point.ry()));
+    ui->x0_value->setText(QString::number(final_point.rx()/10));
+    ui->y0_value->setText(QString::number(-final_point.ry()/10));
 
     myfunctions->function_save_arc(ui->start_x->text().toFloat(),ui->start_y->text().toFloat()
                                    ,ui->radius->text().toFloat()
@@ -93,20 +93,16 @@ void MainWindow::on_bCurve_clicked()
 void MainWindow::print_circuit()
 {
     QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
-    qDebug()<<"print circuit";
-    qDebug()<<myfunctions->circuit_function->circuit_id;
     for(int i=0;i<myfunctions->circuit_function->circuit_road_list.count();i++){
         if(myfunctions->circuit_function->circuit_road_list.at(i)->road_id=="straight_line"){
-            qDebug()<<"there is a rect";
             float x0 = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(0).toFloat();
             float y0 = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(1).toFloat();
             float x1 = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(2).toFloat();
             float y1 = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(3).toFloat();
             myfunctions->function_rect_calculations(x0,y0,x1,y1);
-            view->scene->addLine(x0,-y0,x1,-y1,pen);
+            view->scene->addLine(x0*10,-y0*10,x1*10,-y1*10,pen);
         }
         if(myfunctions->circuit_function->circuit_road_list.at(i)->road_id=="arc"){
-            qDebug()<<"there is an arc";
             float start_x,start_y,length,radius;
             start_x = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(0).toFloat();
             start_y = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(1).toFloat();
@@ -116,8 +112,8 @@ void MainWindow::print_circuit()
             myfunctions->function_curve_calculations(start_x,start_y,length,radius);
 
             QPainterPath arc_path;
-            arc_path.moveTo(start_x,-start_y);
-            arc_path.arcTo(myfunctions->x_displace,-myfunctions->y_displace,radius*2,radius*2,
+            arc_path.moveTo(start_x*10,-start_y*10);
+            arc_path.arcTo(myfunctions->x_displace*10,-myfunctions->y_displace*10,radius*20,radius*20,
                            myfunctions->start_angle_degrees,myfunctions->spanAngle_degrees);
             view->scene->addPath(arc_path,pen);
         }

@@ -16,6 +16,7 @@ void Functions::function_load()
 void Functions::function_save()
 {
     QString fileName_save = mydoc->save_file();
+
     mydoc->xml_writer(fileName_save);
 }
 
@@ -33,6 +34,10 @@ void Functions::function_save_rect(float x0, float y0, float x1, float y1)
     mypath->path_values.append(QString::number(y0));
     mypath->path_values.append(QString::number(x1));
     mypath->path_values.append(QString::number(y1));
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
 
     myroad->road_id.append("straight_line");
     myroad->road_path_list.append(mypath);
@@ -61,6 +66,14 @@ void Functions::function_save_arc(float x0, float y0, float radius, float angle,
     mypath->path_values.append(QString::number(x_center));
     mypath->path_values.append(QString::number(y_center));
     mypath->path_values.append(QString::number(angle));
+
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
+    mypath->path_types.append("float");
 
     myroad->road_id.append("arc");
     myroad->road_path_list.append(mypath);
@@ -108,8 +121,10 @@ void Functions::function_curve_calculations(float x_start, float y_start, float 
     spanAngle_degrees = -(spanAngle_rads*180)/pi; //negative to move clockwise
 
     float rect_angle_rads = (rect_angle*pi)/180;
-    float x_A_I,y_A_I,angle,x_C,y_C,x_C_I,y_C_I,x_B,y_B,x_B_I,y_B_I,x_D_I,y_D_I;
-    float vector_CB_x,vector_CB_y,vector_CB_modulus,vector_CB_angle,vector_CB_angle_rotated,vector_x_rotated,vector_y_rotated,vector_CA_x,vector_CA_y,vector_CA_angle;
+    float x_A_I,y_A_I,angle,x_C,y_C,x_C_I,y_C_I,x_B,y_B,x_B_I,y_B_I,x_D_I,y_D_I,
+            vector_CB_x,vector_CB_y,vector_CB_modulus,vector_CB_angle,
+            vector_CB_angle_rotated,vector_x_rotated,vector_y_rotated,
+            vector_CA_x,vector_CA_y,vector_CA_angle;
 
     x_A_I = x_start;
     y_A_I = y_start;
@@ -162,7 +177,4 @@ void Functions::function_delete_circuit()
     mydoc->road_list.clear();
     mydoc->signal_list.clear();
     circuit_function=mydoc->mycircuit;
-    /*circuit_function->circuit_id.clear();
-    circuit_function->circuit_road_list.clear();
-    circuit_function->circuit_intersection_list.clear();*/
 }

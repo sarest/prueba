@@ -9,6 +9,7 @@ public:
     Intersection();
     QString intersection_id;
     QStringList intersection_parameters;
+    QStringList intersection_types;
     QStringList intersection_values;
 };
 

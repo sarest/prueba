@@ -69,6 +69,7 @@ void Files::xml_writer(QString fileName)
                 xmlWriter.writeEndElement();
                 xmlWriter.writeEndElement(); //paths_end
             }
+
             xmlWriter.writeStartElement("rails");
             if(mycircuit->circuit_road_list.at(i)->road_rail_list.count()>0){
                 for(int r=0;r<mycircuit->circuit_road_list.at(i)->road_rail_list.count();r++){ //write rails

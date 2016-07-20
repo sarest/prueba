@@ -18,8 +18,6 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     functions.cpp \
     items/path.cpp \
-    items/rect.cpp \
-    items/curve.cpp \
     items/rail.cpp \
     items/intersection.cpp \
     items/signal.cpp \
@@ -31,8 +29,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     functions.h \
     items/path.h \
-    items/rect.h \
-    items/curve.h \
     items/rail.h \
     items/intersection.h \
     items/signal.h \

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuit id="prueba">
+    <roads>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">-228</parameter>
+                    <parameter id="y_start" type="float">-15</parameter>
+                    <parameter id="x_end" type="float">-59</parameter>
+                    <parameter id="y_end" type="float">65</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+    </roads>
+    <intersections/>
+</circuit>

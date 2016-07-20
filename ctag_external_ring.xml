@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuit id="ctag_external_ring">
+   
+   	<path id="ctag_external_ring">
+    	<parameters>	
+    		<parameter id="model" type="string">CSVPath</parameter>
+			<parameter id="search_distance" type="float">3.0</parameter>
+			<parameter id="search_tolerance" type="float">0.08</parameter>	
+			<parameter id="cyclic" type="boolean">True</parameter>	
+			<parameter id="tolerance" type="float">0.1</parameter>						
+		</parameters>	
+    </path>
+    
+    <rails>
+ 		<rail id="0"> 
+ 			<parameters>
+	   			<parameter id="width" type="float">3.8</parameter>
+	   			<parameter id="direction" type="integer">1</parameter>
+			</parameters>
+   		</rail>
+   		<rail id="1"> 
+   			<parameters>
+	   			<parameter id="width" type="float">3.8</parameter>
+	   			<parameter id="direction" type="integer">1</parameter>
+			</parameters>
+   		</rail>
+   	</rails>
+   		    	
+   	<signals> 
+        <signal id="START">
+        	<parameters>
+	        	<parameter id="type" type="string">location</parameter>
+	            <parameter id="index" type="integer">1</parameter>
+            </parameters>
+        </signal>        
+        <signal id="END">
+         	<parameters>
+	         	<parameter id="type" type="string">location</parameter>
+	            <parameter id="index" type="integer">90000</parameter>
+            </parameters>
+        </signal>
+        <signal id="rc2">
+         	<parameters>
+	         	<parameter id="type" type="string">rail_change</parameter>
+	            <parameter id="index" type="integer">70000</parameter>
+	            <parameter id="rail" type="integer">0</parameter>    
+            </parameters>        
+        </signal>    
+    </signals> 
+
+</circuit>

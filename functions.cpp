@@ -58,7 +58,6 @@ void Functions::function_save_arc(float x0, float y0, float radius, float angle,
     mypath->path_parameters.append("y_center");
     mypath->path_parameters.append("angle");
 
-
     mypath->path_values.append(QString::number(x0));
     mypath->path_values.append(QString::number(y0));
     mypath->path_values.append(QString::number(radius));
@@ -85,7 +84,6 @@ void Functions::function_rect_calculations(float x0, float y0, float x1, float y
     float x = abs(x1-x0);
     float y = abs(y1-y0);
     rect_length = sqrt(x*x+y*y);
-    //qDebug()<<"rect_length:"<<rect_length;
     bool first=0,second=0,third=0,fourth=0;
     if(((x1-x0)>=0)&&((y1-y0)>=0)){
         first=1;
@@ -111,8 +109,6 @@ void Functions::function_rect_calculations(float x0, float y0, float x1, float y
         rect_angle = 180;
     if(third && fourth)
         rect_angle = 270;
-
-    //qDebug()<<"rect_angle:"<<rect_angle;
 }
 
 void Functions::function_curve_calculations(float x_start, float y_start, float length, float radius)

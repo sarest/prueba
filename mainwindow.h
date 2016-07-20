@@ -8,7 +8,7 @@
 #include <QWheelEvent>
 #include <QGraphicsItem>
 #include <QGraphicsEllipseItem>
-#include "math.h"
+#include <QMouseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -36,7 +36,7 @@ private:
     MyQGraphicsView *view = new MyQGraphicsView;
     void print_circuit();
     void wheelEvent(QWheelEvent *event);
-
+    QString info_text;
 };
 
 #endif // MAINWINDOW_H

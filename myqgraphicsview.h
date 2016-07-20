@@ -10,9 +10,12 @@ class MyQGraphicsView: public QGraphicsView
 {
 public:
     explicit MyQGraphicsView(QWidget *parent = 0);
-    QGraphicsScene *scene;
+    QGraphicsScene *scene;  
+    int start_x,start_y,final_x,final_y;
 private:
     void mousePressEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e);
+    QPointF start_point, final_point;
 };
 
 #endif // MYQGRAPHICSVIEW_H

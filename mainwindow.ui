@@ -19,8 +19,108 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="3" column="0">
+     <layout class="QGridLayout" name="rect_layout">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="bRect">
+        <property name="text">
+         <string>Draw Rect</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="x0_label">
+          <property name="text">
+           <string>Start Point</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="x0_value">
+          <property name="inputMethodHints">
+           <set>Qt::ImhNone</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLineEdit" name="y0_value"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="y0_label">
+          <property name="text">
+           <string>End Point</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="x1_value"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLineEdit" name="y1_value"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="1">
+     <layout class="QGridLayout" name="curve_layout">
+      <item row="1" column="0">
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Start X</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="start_x"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Start Y</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="start_y"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Arc Length</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="length"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Radius</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLineEdit" name="radius"/>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="bCurve">
+        <property name="text">
+         <string>Draw Curve</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0" colspan="2">
      <layout class="QGridLayout" name="view_layout">
       <item row="0" column="0">
        <widget class="QLabel" name="info_label">
@@ -57,7 +157,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="1" column="0" colspan="2">
      <layout class="QHBoxLayout" name="function_layout">
       <item>
        <widget class="QPushButton" name="bLoad">
@@ -81,6 +181,33 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="bConfirm">
+        <property name="text">
+         <string>CONFIRM</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="bUndo">
+        <property name="text">
+         <string>UNDO</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
        <widget class="QPushButton" name="bTest">
         <property name="text">
          <string>TEST</string>
@@ -99,99 +226,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="6" column="0">
-     <layout class="QGridLayout" name="main_layout">
-      <item row="0" column="0">
-       <layout class="QGridLayout" name="laydraw">
-        <item row="4" column="0">
-         <layout class="QGridLayout" name="gridLayout_5">
-          <item row="2" column="1">
-           <widget class="QLineEdit" name="radius"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Arc Length</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Start Point</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="start_x"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="length"/>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Radius</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="start_y"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="bRect">
-          <property name="text">
-           <string>Draw Rect</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QPushButton" name="bCurve">
-          <property name="text">
-           <string>Draw Curve</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <layout class="QGridLayout" name="gridLayout_4">
-          <item row="0" column="2">
-           <widget class="QLineEdit" name="y0_value"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="x1_value"/>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLineEdit" name="y1_value"/>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="x0_label">
-            <property name="text">
-             <string>Start Point</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="y0_label">
-            <property name="text">
-             <string>End Point</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="x0_value">
-            <property name="inputMethodHints">
-             <set>Qt::ImhNone</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
       </item>
      </layout>
     </item>
@@ -218,7 +252,6 @@
   <tabstop>start_x</tabstop>
   <tabstop>start_y</tabstop>
   <tabstop>length</tabstop>
-  <tabstop>radius</tabstop>
   <tabstop>bRect</tabstop>
   <tabstop>bCurve</tabstop>
  </tabstops>

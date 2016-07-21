@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuit id="prueba2">
+    <roads>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">30</parameter>
+                    <parameter id="y_end" type="float">0</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">130</parameter>
+                    <parameter id="y_end" type="float">50</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">0</parameter>
+                    <parameter id="y_end" type="float">70</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">60</parameter>
+                    <parameter id="y_end" type="float">60</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+        <road id="arc">
+            <path id="arc">
+                <parameters>
+                    <parameter id="x_start" type="float">60</parameter>
+                    <parameter id="y_start" type="float">60</parameter>
+                    <parameter id="radius" type="float">50</parameter>
+                    <parameter id="distance" type="float">100</parameter>
+                    <parameter id="x_center" type="float">95.3553</parameter>
+                    <parameter id="y_center" type="float">24.6447</parameter>
+                    <parameter id="angle" type="float">2</parameter>
+                </parameters>
+            </path>
+            <rails/>
+            <signals/>
+        </road>
+    </roads>
+    <intersections/>
+</circuit>

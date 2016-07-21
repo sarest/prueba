@@ -6,6 +6,7 @@
 #include "items/road.h"
 #include "items/path.h"
 #include "items/circuit.h"
+#include "items/intersection.h"
 
 
 class Functions
@@ -17,6 +18,7 @@ public:
 
     void function_save_rect(float x0,float y0,float x1,float y1);
     void function_save_arc(float x0, float y0, float radius, float angle, float x_center, float y_center, float distance);
+    void function_save_intersection();
 
     void function_rect_calculations(float x0,float y0,float x1,float y1);
     void function_curve_calculations(float x_start, float y_start, float length, float radius);

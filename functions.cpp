@@ -79,6 +79,23 @@ void Functions::function_save_arc(float x0, float y0, float radius, float angle,
     mydoc->mycircuit->circuit_road_list.append(myroad);
 }
 
+void Functions::function_save_intersection()
+{
+    Intersection *myintersection = new Intersection;
+    myintersection->intersection_id = "straight_line_plus_arc";
+    myintersection->intersection_parameters.append("from_road");
+    myintersection->intersection_parameters.append("to_road");
+    myintersection->intersection_parameters.append("type");
+    myintersection->intersection_types.append("string");
+    myintersection->intersection_types.append("string");
+    myintersection->intersection_types.append("string");
+    myintersection->intersection_values.append("straight_line");
+    myintersection->intersection_values.append("arc");
+    myintersection->intersection_values.append("direct");
+
+    mydoc->mycircuit->circuit_intersection_list.append(myintersection);
+}
+
 void Functions::function_rect_calculations(float x0, float y0, float x1, float y1)
 {
     float x = abs(x1-x0);

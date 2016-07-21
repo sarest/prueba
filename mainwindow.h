@@ -30,12 +30,15 @@ private slots:
     void on_bClear_clicked();
     void on_bTest_clicked();
 
+    void on_bConfirm_clicked();
+
+    void on_bUndo_clicked();
+
 private:
     Ui::MainWindow *ui;
     Functions *myfunctions = new Functions;
     MyQGraphicsView *view = new MyQGraphicsView;
     void print_circuit();
-    void wheelEvent(QWheelEvent *event);
     QString info_text;
 };
 

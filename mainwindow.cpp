@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view->scene->addLine(0,0,0,-10,penpoint);
 
     ui->view_layout->addWidget(view);
+
 }
 
 MainWindow::~MainWindow()
@@ -54,7 +55,7 @@ void MainWindow::on_bRect_clicked()
     status_text.append(")");
     ui->statusBar->showMessage(status_text);
 
-    info_text = "| Rect length = " + QString::number(myfunctions->rect_length) + " m. | ";
+    info_text.append("| Rect length = " + QString::number(myfunctions->rect_length) + " m. | ");
     ui->info_label->setText(info_text);
 
     ui->start_x->setText(ui->x1_value->text());
@@ -91,6 +92,7 @@ void MainWindow::on_bCurve_clicked()
                                    ,myfunctions->spanAngle_rads
                                    ,myfunctions->x_center,myfunctions->y_center
                                    ,ui->length->text().toFloat());
+    myfunctions->function_save_intersection();
 }
 
 void MainWindow::print_circuit()
@@ -141,26 +143,25 @@ void MainWindow::on_bClear_clicked()
     ui->y0_value->clear();
     ui->y1_value->clear();
     ui->info_label->clear();
+    info_text.clear();
     ui->statusBar->showMessage("");
 }
 
-void MainWindow::wheelEvent(QWheelEvent *event)
+void MainWindow::on_bTest_clicked()
 {
-    if (event->delta() > 0) {
-        if (event->orientation() == Qt::Vertical)
-            view->scale(1.05,1.05);
-    }
-    else if (event->delta() < 0) {
-        if (event->orientation() == Qt::Vertical)
-            view->scale(0.95,0.95);
-    }
+    view->scene->addRect(view->sceneRect());
 }
 
-void MainWindow::on_bTest_clicked()
+void MainWindow::on_bConfirm_clicked()
 {
     ui->x0_value->setText(QString::number(view->start_x));
     ui->y0_value->setText(QString::number(-view->start_y));
     ui->x1_value->setText(QString::number(view->final_x));
     ui->y1_value->setText(QString::number(-view->final_y));
     on_bRect_clicked();
+}
+
+void MainWindow::on_bUndo_clicked()
+{
+    view->scene->items().first()->hide();
 }

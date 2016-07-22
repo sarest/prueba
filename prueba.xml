@@ -6,63 +6,42 @@
                 <parameters>
                     <parameter id="x_start" type="float">0</parameter>
                     <parameter id="y_start" type="float">0</parameter>
-                    <parameter id="x_end" type="float">0</parameter>
+                    <parameter id="x_end" type="float">100</parameter>
                     <parameter id="y_end" type="float">100</parameter>
                 </parameters>
             </path>
+            <rails>
+                <rail id="rail0">
+                    <parameters>
+                        <parameter id="width" type="float">3.8</parameter>
+                        <parameter id="direction" type="interger">1</parameter>
+                    </parameters>
+                </rail>
+            </rails>
         </road>
         <road id="arc">
             <path id="arc">
                 <parameters>
-                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="x_start" type="float">100</parameter>
                     <parameter id="y_start" type="float">100</parameter>
                     <parameter id="radius" type="float">50</parameter>
                     <parameter id="distance" type="float">100</parameter>
-                    <parameter id="x_center" type="float">50</parameter>
-                    <parameter id="y_center" type="float">100</parameter>
+                    <parameter id="x_center" type="float">64.6447</parameter>
+                    <parameter id="y_center" type="float">135.355</parameter>
                     <parameter id="angle" type="float">2</parameter>
                 </parameters>
             </path>
-        </road>
-        <road id="straight_line">
-            <path id="straight_line">
-                <parameters>
-                    <parameter id="x_start" type="float">70</parameter>
-                    <parameter id="y_start" type="float">150</parameter>
-                    <parameter id="x_end" type="float">150</parameter>
-                    <parameter id="y_end" type="float">90</parameter>
-                </parameters>
-            </path>
-        </road>
-        <road id="arc">
-            <path id="arc">
-                <parameters>
-                    <parameter id="x_start" type="float">150</parameter>
-                    <parameter id="y_start" type="float">90</parameter>
-                    <parameter id="radius" type="float">50</parameter>
-                    <parameter id="distance" type="float">100</parameter>
-                    <parameter id="x_center" type="float">120</parameter>
-                    <parameter id="y_center" type="float">50</parameter>
-                    <parameter id="angle" type="float">2</parameter>
-                </parameters>
-            </path>
+            <rails>
+                <rail id="rail0">
+                    <parameters>
+                        <parameter id="width" type="float">3.8</parameter>
+                        <parameter id="direction" type="interger">1</parameter>
+                    </parameters>
+                </rail>
+            </rails>
         </road>
     </roads>
     <intersections>
-        <intersection id="straight_line_plus_arc">
-            <parameters>
-                <parameter id="from_road" type="string">straight_line</parameter>
-                <parameter id="to_road" type="string">arc</parameter>
-                <parameter id="type" type="string">direct</parameter>
-            </parameters>
-        </intersection>
-        <intersection id="arc_plus_straight_line">
-            <parameters>
-                <parameter id="from_road" type="string">arc</parameter>
-                <parameter id="to_road" type="string">straight_line</parameter>
-                <parameter id="type" type="string">direct</parameter>
-            </parameters>
-        </intersection>
         <intersection id="straight_line_plus_arc">
             <parameters>
                 <parameter id="from_road" type="string">straight_line</parameter>

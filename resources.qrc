@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>imgs/grid.png</file>
+        <file>imgs/ctag_logo.png</file>
     </qresource>
 </RCC>

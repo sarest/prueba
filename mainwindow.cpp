@@ -7,13 +7,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPen penpoint(Qt::red,1,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
-    view->scene->addLine(0,0,10,0,penpoint);
-    view->scene->addLine(0,0,0,10,penpoint);
-    view->scene->addLine(0,0,-10,0,penpoint);
-    view->scene->addLine(0,0,0,-10,penpoint);
-
     ui->view_layout->addWidget(view);
+
+    set_grid();
+
+    ui->rRight->click();
+
+    QPixmap logo(":/imgs/ctag_logo.png");
+    logo=logo.scaled(100,100);
+    ui->title_label->setPixmap(logo);
 }
 
 MainWindow::~MainWindow()
@@ -25,12 +27,13 @@ void MainWindow::on_bLoad_clicked()
 {
     myfunctions->function_load();
     print_circuit();
-    ui->statusBar->showMessage("Circuit "+myfunctions->circuit_function->circuit_id+" loaded");
+    ui->statusBar->showMessage("Circuit " + myfunctions->circuit_function->circuit_id + " loaded");
 }
 
 void MainWindow::on_bSave_clicked()
 {
     myfunctions->function_save_intersection();
+    myfunctions->function_save_rails();
     myfunctions->function_save();
 }
 
@@ -42,7 +45,7 @@ void MainWindow::on_bRect_clicked()
     x1 = ui->x1_value->text().toFloat();
     y1 = ui->y1_value->text().toFloat();
 
-    QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
+    QPen pen(Qt::black,2,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     view->scene->addLine(x0,-y0,x1,-y1,pen);
     myfunctions->function_save_rect(x0,y0,x1,y1);
     myfunctions->function_rect_calculations(x0,y0,x1,y1);
@@ -64,11 +67,15 @@ void MainWindow::on_bRect_clicked()
 
 void MainWindow::on_bCurve_clicked()
 {
-    myfunctions->function_curve_calculations(ui->start_x->text().toFloat(),ui->start_y->text().toFloat()
+    if(ui->rRight->isChecked())
+        myfunctions->function_curve_calculations(ui->start_x->text().toFloat(),ui->start_y->text().toFloat()
+                                             ,ui->length->text().toFloat(),ui->radius->text().toFloat());
+    else if(ui->rLeft->isChecked())
+        myfunctions->function_curve_calculations_left(ui->start_x->text().toFloat(),ui->start_y->text().toFloat()
                                              ,ui->length->text().toFloat(),ui->radius->text().toFloat());
 
     float radius = ui->radius->text().toFloat();
-    QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
+    QPen pen(Qt::black,2,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     QPainterPath arc_path;
     arc_path.moveTo(ui->start_x->text().toFloat(),-ui->start_y->text().toFloat());
     arc_path.arcTo(myfunctions->x_displace,-myfunctions->y_displace,radius*2,radius*2,
@@ -96,7 +103,7 @@ void MainWindow::on_bCurve_clicked()
 
 void MainWindow::print_circuit()
 {
-    QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
+    QPen pen(Qt::black,2,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     for(int i=0;i<myfunctions->circuit_function->circuit_road_list.count();i++){
         if(myfunctions->circuit_function->circuit_road_list.at(i)->road_id=="straight_line"){
             float x0 = myfunctions->circuit_function->circuit_road_list.at(i)->road_path_list.first()->path_values.at(0).toFloat();
@@ -124,14 +131,26 @@ void MainWindow::print_circuit()
     }
 }
 
+void MainWindow::set_grid()
+{
+    //view->scene->setBackgroundBrush(QBrush(QPixmap(":/imgs/grid.png")));
+
+    for (int x=-9999; x<=9999; x+=10)
+        view->scene->addLine(x,-9999,x,9999, QPen(Qt::green));
+    for (int y=-9999; y<=9999; y+=10)
+        view->scene->addLine(-9999,y,9999,y, QPen(Qt::green));
+
+    QPen origin(Qt::red,1,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
+    view->scene->addLine(0,0,10,0,origin);
+    view->scene->addLine(0,0,0,10,origin);
+    view->scene->addLine(0,0,-10,0,origin);
+    view->scene->addLine(0,0,0,-10,origin);
+}
+
 void MainWindow::on_bClear_clicked()
 {
     view->scene->clear();
-    QPen penpoint(Qt::red,1,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
-    view->scene->addLine(0,0,10,0,penpoint);
-    view->scene->addLine(0,0,0,10,penpoint);
-    view->scene->addLine(0,0,-10,0,penpoint);
-    view->scene->addLine(0,0,0,-10,penpoint);
+    set_grid();
     myfunctions->function_delete_circuit();
     ui->start_x->clear();
     ui->start_y->clear();
@@ -149,8 +168,6 @@ void MainWindow::on_bClear_clicked()
 void MainWindow::on_bTest_clicked()
 {
     //view->scene->addRect(view->sceneRect());
-
-
 }
 
 void MainWindow::on_bConfirm_clicked()
@@ -165,4 +182,9 @@ void MainWindow::on_bConfirm_clicked()
 void MainWindow::on_bUndo_clicked()
 {
     view->scene->items().first()->hide();
+}
+
+void MainWindow::on_bSignal_clicked()
+{
+    myfunctions->function_signal();
 }

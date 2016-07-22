@@ -21,6 +21,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -41,19 +42,22 @@ public:
     QLabel *y0_label;
     QLineEdit *x1_value;
     QLineEdit *y1_value;
-    QGridLayout *curve_layout;
-    QGridLayout *gridLayout;
-    QLabel *label_4;
-    QLineEdit *start_x;
-    QLabel *label;
-    QLineEdit *start_y;
-    QLabel *label_3;
-    QLineEdit *length;
-    QLabel *label_5;
-    QLineEdit *radius;
-    QPushButton *bCurve;
     QGridLayout *view_layout;
     QLabel *info_label;
+    QGridLayout *curve_layout;
+    QGridLayout *gridLayout;
+    QLineEdit *start_x;
+    QLabel *label_4;
+    QLineEdit *length;
+    QLabel *label;
+    QLabel *label_5;
+    QLabel *label_3;
+    QLineEdit *start_y;
+    QLineEdit *radius;
+    QPushButton *bCurve;
+    QHBoxLayout *horizontalLayout;
+    QRadioButton *rLeft;
+    QRadioButton *rRight;
     QLabel *title_label;
     QHBoxLayout *function_layout;
     QPushButton *bLoad;
@@ -62,6 +66,8 @@ public:
     QPushButton *bConfirm;
     QPushButton *bUndo;
     QSpacerItem *horizontalSpacer_2;
+    QPushButton *bSignal;
+    QSpacerItem *horizontalSpacer_3;
     QPushButton *bTest;
     QSpacerItem *horizontalSpacer;
     QMenuBar *menuBar;
@@ -71,7 +77,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(838, 601);
+        MainWindow->resize(1600, 900);
         QFont font;
         font.setPointSize(8);
         MainWindow->setFont(font);
@@ -129,63 +135,6 @@ public:
 
         gridLayout_5->addLayout(rect_layout, 3, 0, 1, 1);
 
-        curve_layout = new QGridLayout();
-        curve_layout->setSpacing(6);
-        curve_layout->setObjectName(QStringLiteral("curve_layout"));
-        gridLayout = new QGridLayout();
-        gridLayout->setSpacing(6);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label_4 = new QLabel(centralWidget);
-        label_4->setObjectName(QStringLiteral("label_4"));
-
-        gridLayout->addWidget(label_4, 0, 0, 1, 1);
-
-        start_x = new QLineEdit(centralWidget);
-        start_x->setObjectName(QStringLiteral("start_x"));
-
-        gridLayout->addWidget(start_x, 0, 1, 1, 1);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 0, 2, 1, 1);
-
-        start_y = new QLineEdit(centralWidget);
-        start_y->setObjectName(QStringLiteral("start_y"));
-
-        gridLayout->addWidget(start_y, 0, 3, 1, 1);
-
-        label_3 = new QLabel(centralWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-
-        gridLayout->addWidget(label_3, 1, 0, 1, 1);
-
-        length = new QLineEdit(centralWidget);
-        length->setObjectName(QStringLiteral("length"));
-
-        gridLayout->addWidget(length, 1, 1, 1, 1);
-
-        label_5 = new QLabel(centralWidget);
-        label_5->setObjectName(QStringLiteral("label_5"));
-
-        gridLayout->addWidget(label_5, 1, 2, 1, 1);
-
-        radius = new QLineEdit(centralWidget);
-        radius->setObjectName(QStringLiteral("radius"));
-
-        gridLayout->addWidget(radius, 1, 3, 1, 1);
-
-
-        curve_layout->addLayout(gridLayout, 1, 0, 1, 1);
-
-        bCurve = new QPushButton(centralWidget);
-        bCurve->setObjectName(QStringLiteral("bCurve"));
-
-        curve_layout->addWidget(bCurve, 0, 0, 1, 1);
-
-
-        gridLayout_5->addLayout(curve_layout, 3, 1, 1, 1);
-
         view_layout = new QGridLayout();
         view_layout->setSpacing(6);
         view_layout->setObjectName(QStringLiteral("view_layout"));
@@ -199,6 +148,79 @@ public:
 
 
         gridLayout_5->addLayout(view_layout, 2, 0, 1, 2);
+
+        curve_layout = new QGridLayout();
+        curve_layout->setSpacing(6);
+        curve_layout->setObjectName(QStringLiteral("curve_layout"));
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        start_x = new QLineEdit(centralWidget);
+        start_x->setObjectName(QStringLiteral("start_x"));
+
+        gridLayout->addWidget(start_x, 0, 1, 1, 1);
+
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+
+        gridLayout->addWidget(label_4, 0, 0, 1, 1);
+
+        length = new QLineEdit(centralWidget);
+        length->setObjectName(QStringLiteral("length"));
+
+        gridLayout->addWidget(length, 1, 1, 1, 1);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 0, 2, 1, 1);
+
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout->addWidget(label_5, 1, 2, 1, 1);
+
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 1, 0, 1, 1);
+
+        start_y = new QLineEdit(centralWidget);
+        start_y->setObjectName(QStringLiteral("start_y"));
+
+        gridLayout->addWidget(start_y, 0, 3, 1, 1);
+
+        radius = new QLineEdit(centralWidget);
+        radius->setObjectName(QStringLiteral("radius"));
+
+        gridLayout->addWidget(radius, 1, 3, 1, 1);
+
+
+        curve_layout->addLayout(gridLayout, 4, 0, 1, 1);
+
+        bCurve = new QPushButton(centralWidget);
+        bCurve->setObjectName(QStringLiteral("bCurve"));
+
+        curve_layout->addWidget(bCurve, 0, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        rLeft = new QRadioButton(centralWidget);
+        rLeft->setObjectName(QStringLiteral("rLeft"));
+
+        horizontalLayout->addWidget(rLeft);
+
+        rRight = new QRadioButton(centralWidget);
+        rRight->setObjectName(QStringLiteral("rRight"));
+
+        horizontalLayout->addWidget(rRight);
+
+
+        curve_layout->addLayout(horizontalLayout, 2, 0, 1, 1);
+
+
+        gridLayout_5->addLayout(curve_layout, 3, 1, 1, 1);
 
         title_label = new QLabel(centralWidget);
         title_label->setObjectName(QStringLiteral("title_label"));
@@ -242,6 +264,15 @@ public:
 
         function_layout->addItem(horizontalSpacer_2);
 
+        bSignal = new QPushButton(centralWidget);
+        bSignal->setObjectName(QStringLiteral("bSignal"));
+
+        function_layout->addWidget(bSignal);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        function_layout->addItem(horizontalSpacer_3);
+
         bTest = new QPushButton(centralWidget);
         bTest->setObjectName(QStringLiteral("bTest"));
 
@@ -257,7 +288,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 838, 26));
+        menuBar->setGeometry(QRect(0, 0, 1600, 26));
         MainWindow->setMenuBar(menuBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -289,18 +320,21 @@ public:
         bRect->setText(QApplication::translate("MainWindow", "Draw Rect", 0));
         x0_label->setText(QApplication::translate("MainWindow", "Start Point", 0));
         y0_label->setText(QApplication::translate("MainWindow", "End Point", 0));
+        info_label->setText(QString());
         label_4->setText(QApplication::translate("MainWindow", "Start X", 0));
         label->setText(QApplication::translate("MainWindow", "Start Y", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Arc Length", 0));
         label_5->setText(QApplication::translate("MainWindow", "Radius", 0));
+        label_3->setText(QApplication::translate("MainWindow", "Arc Length", 0));
         bCurve->setText(QApplication::translate("MainWindow", "Draw Curve", 0));
-        info_label->setText(QString());
+        rLeft->setText(QApplication::translate("MainWindow", "Left", 0));
+        rRight->setText(QApplication::translate("MainWindow", "Right", 0));
         title_label->setText(QApplication::translate("MainWindow", "MAIN TITLE", 0));
         bLoad->setText(QApplication::translate("MainWindow", "LOAD", 0));
         bSave->setText(QApplication::translate("MainWindow", "SAVE", 0));
         bClear->setText(QApplication::translate("MainWindow", "CLEAR", 0));
         bConfirm->setText(QApplication::translate("MainWindow", "CONFIRM", 0));
         bUndo->setText(QApplication::translate("MainWindow", "UNDO", 0));
+        bSignal->setText(QApplication::translate("MainWindow", "SIGNAL", 0));
         bTest->setText(QApplication::translate("MainWindow", "TEST", 0));
     } // retranslateUi
 

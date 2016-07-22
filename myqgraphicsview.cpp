@@ -6,16 +6,6 @@ MyQGraphicsView::MyQGraphicsView(QWidget *parent) : QGraphicsView(parent)
 {
     scene = new QGraphicsScene();
 
-    /*// Add the vertical lines first, paint them red
-    for (int x=-5000; x<=5000; x+=10)
-        scene->addLine(x,0-5000,x,5000, QPen(Qt::green));
-
-    // Now add the horizontal lines, paint them green
-    for (int y=-5000; y<=5000; y+=10)
-        scene->addLine(-5000,y,5000,y, QPen(Qt::green));*/
-
-    scene->setBackgroundBrush(QBrush(QPixmap(":/imgs/grid.png")));
-
     this->setScene(scene);
 }
 
@@ -28,7 +18,7 @@ void MyQGraphicsView::mouseReleaseEvent(QMouseEvent *e)
 {
     final_point = mapToScene(e->pos());
 
-    QPen pen(Qt::black,3,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
+    QPen pen(Qt::black,2,Qt::SolidLine,Qt::RoundCap,Qt::RoundJoin);
     start_x = (int)start_point.x();
     start_y = (int)start_point.y();
     final_x = (int)final_point.x();
@@ -92,9 +82,4 @@ void MyQGraphicsView::round_point_values()
         else
             final_y = final_y-(final_y%10)+10;
     }
-}
-
-void MyQGraphicsView::zoomToFit()
-{
-    fitInView(scene->sceneRect(), Qt::KeepAspectRatio);
 }

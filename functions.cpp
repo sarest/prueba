@@ -101,6 +101,21 @@ void Functions::function_save_intersection()
     }
 }
 
+void Functions::function_save_rails()
+{
+    for(int i=0; i<mydoc->mycircuit->circuit_road_list.count(); i++){
+        Rail *myrail = new Rail;
+        myrail->rail_id = "0";
+        myrail->rail_parameters.append("width");
+        myrail->rail_parameters.append("direction");
+        myrail->rail_types.append("float");
+        myrail->rail_types.append("integer");
+        myrail->rail_values.append("3.8");
+        myrail->rail_values.append("1");
+        mydoc->mycircuit->circuit_road_list.at(i)->road_rail_list.append(myrail);
+    }
+}
+
 void Functions::function_rect_calculations(float x0, float y0, float x1, float y1)
 {
     float x = abs(x1-x0);
@@ -184,6 +199,58 @@ void Functions::function_curve_calculations(float x_start, float y_start, float 
     start_angle_degrees = vector_CA_angle*180/pi;
 }
 
+void Functions::function_curve_calculations_left(float x_start, float y_start, float length, float radius)
+{
+        spanAngle_rads = length/radius;
+        spanAngle_degrees = spanAngle_rads*180/pi; //move counter-clockwise
+
+        float rect_angle_rads = (rect_angle*pi)/180;
+        float x_A_I,y_A_I,angle,x_C,y_C,x_C_I,y_C_I,x_B,y_B,x_B_I,y_B_I,x_D_I,y_D_I,
+                vector_CB_x,vector_CB_y,vector_CB_modulus,vector_CB_angle,
+                vector_CB_angle_rotated,vector_x_rotated,vector_y_rotated,
+                vector_CA_x,vector_CA_y,vector_CA_angle;
+
+        x_A_I = x_start;
+        y_A_I = y_start;
+        angle = rect_angle_rads;
+
+        //Compute C point (with respect to the inertial system)
+        x_C = 0.0;
+        y_C = radius;
+        x_C_I = x_A_I + cos(angle)*x_C - sin(angle)*y_C;
+        y_C_I = y_A_I + sin(angle)*x_C + cos(angle)*y_C;
+        x_center = x_C_I;
+        y_center = y_C_I;
+
+        //Compute B point (with respect to the inertial system)
+        x_B = -radius;
+        y_B = radius*2;
+        x_B_I = x_A_I + cos(angle)*x_B - sin(angle)*y_B;
+        y_B_I = y_A_I + sin(angle)*x_B + cos(angle)*y_B;
+
+        //Compute vector CB an rotate it
+        vector_CB_x = x_B_I - x_C_I;
+        vector_CB_y = y_B_I - y_C_I;
+        vector_CB_modulus = sqrt(vector_CB_x*vector_CB_x + vector_CB_y*vector_CB_y);
+        vector_CB_angle = atan2(vector_CB_y,vector_CB_x);
+        vector_CB_angle_rotated = vector_CB_angle - angle;
+        vector_x_rotated = vector_CB_modulus*cos(vector_CB_angle_rotated);
+        vector_y_rotated = vector_CB_modulus*sin(vector_CB_angle_rotated);
+
+        //Compute D point (with respect to the inertial system)
+        x_D_I = x_C_I + vector_x_rotated;
+        y_D_I = y_C_I + vector_y_rotated;
+        x_displace = x_D_I;
+        y_displace = y_D_I;
+
+        //Compute vector CA
+        vector_CA_x = x_A_I - x_C_I;
+        vector_CA_y = y_A_I - y_C_I;
+        vector_CA_angle = atan2(vector_CA_y,vector_CA_x);
+        start_angle_degrees = vector_CA_angle*180/pi;
+
+}
+
 void Functions::function_delete_circuit()
 {
     mydoc->mycircuit->circuit_id.clear();
@@ -195,4 +262,13 @@ void Functions::function_delete_circuit()
     mydoc->road_list.clear();
     mydoc->signal_list.clear();
     circuit_function=mydoc->mycircuit;
+}
+
+void Functions::function_signal()
+{
+    Dialog *mydialog = new Dialog;
+    if(mydialog->exec()==QDialog::Accepted)
+        qDebug()<<"dialogo aceptado";
+    else
+        qDebug()<<"dialogo rechazado";
 }

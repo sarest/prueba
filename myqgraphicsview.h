@@ -19,7 +19,6 @@ private:
     void wheelEvent(QWheelEvent *e);
     QPointF start_point, final_point;
     void round_point_values();
-    void zoomToFit();
 };
 
 #endif // MYQGRAPHICSVIEW_H

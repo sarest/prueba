@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     files.cpp \
     myqgraphicsview.cpp \
     items/road.cpp \
-    items/circuit.cpp
+    items/circuit.cpp \
+    dialog.cpp
 
 HEADERS  += mainwindow.h \
     functions.h \
@@ -35,9 +36,11 @@ HEADERS  += mainwindow.h \
     files.h \
     myqgraphicsview.h \
     items/road.h \
-    items/circuit.h
+    items/circuit.h \
+    dialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dialog.ui
 
 RESOURCES += \
     resources.qrc

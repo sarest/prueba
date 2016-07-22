@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<circuit id="prueba">
+<circuit id="prueba_intersect">
     <roads>
         <road id="straight_line">
             <path id="straight_line">
                 <parameters>
-                    <parameter id="x_start" type="float">0</parameter>
-                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_start" type="float">-150</parameter>
+                    <parameter id="y_start" type="float">100</parameter>
                     <parameter id="x_end" type="float">0</parameter>
-                    <parameter id="y_end" type="float">100</parameter>
+                    <parameter id="y_end" type="float">150</parameter>
                 </parameters>
             </path>
+            <rails/>
+            <signals/>
         </road>
         <road id="arc">
             <path id="arc">
                 <parameters>
                     <parameter id="x_start" type="float">0</parameter>
-                    <parameter id="y_start" type="float">100</parameter>
+                    <parameter id="y_start" type="float">150</parameter>
                     <parameter id="radius" type="float">50</parameter>
                     <parameter id="distance" type="float">100</parameter>
-                    <parameter id="x_center" type="float">50</parameter>
-                    <parameter id="y_center" type="float">100</parameter>
+                    <parameter id="x_center" type="float">15.8114</parameter>
+                    <parameter id="y_center" type="float">102.566</parameter>
                     <parameter id="angle" type="float">2</parameter>
                 </parameters>
             </path>
+            <rails/>
+            <signals/>
         </road>
         <road id="straight_line">
             <path id="straight_line">
                 <parameters>
-                    <parameter id="x_start" type="float">70</parameter>
-                    <parameter id="y_start" type="float">150</parameter>
-                    <parameter id="x_end" type="float">150</parameter>
-                    <parameter id="y_end" type="float">90</parameter>
+                    <parameter id="x_start" type="float">60</parameter>
+                    <parameter id="y_start" type="float">100</parameter>
+                    <parameter id="x_end" type="float">40</parameter>
+                    <parameter id="y_end" type="float">10</parameter>
                 </parameters>
             </path>
+            <rails/>
+            <signals/>
         </road>
-        <road id="arc">
-            <path id="arc">
+        <road id="straight_line">
+            <path id="straight_line">
                 <parameters>
-                    <parameter id="x_start" type="float">150</parameter>
-                    <parameter id="y_start" type="float">90</parameter>
-                    <parameter id="radius" type="float">50</parameter>
-                    <parameter id="distance" type="float">100</parameter>
-                    <parameter id="x_center" type="float">120</parameter>
-                    <parameter id="y_center" type="float">50</parameter>
-                    <parameter id="angle" type="float">2</parameter>
+                    <parameter id="x_start" type="float">40</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">180</parameter>
+                    <parameter id="y_end" type="float">-10</parameter>
                 </parameters>
             </path>
+            <rails/>
+            <signals/>
         </road>
     </roads>
     <intersections>
@@ -63,10 +68,10 @@
                 <parameter id="type" type="string">direct</parameter>
             </parameters>
         </intersection>
-        <intersection id="straight_line_plus_arc">
+        <intersection id="straight_line_plus_straight_line">
             <parameters>
                 <parameter id="from_road" type="string">straight_line</parameter>
-                <parameter id="to_road" type="string">arc</parameter>
+                <parameter id="to_road" type="string">straight_line</parameter>
                 <parameter id="type" type="string">direct</parameter>
             </parameters>
         </intersection>

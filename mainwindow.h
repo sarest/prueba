@@ -29,9 +29,7 @@ private slots:
     void on_bCurve_clicked();
     void on_bClear_clicked();
     void on_bTest_clicked();
-
     void on_bConfirm_clicked();
-
     void on_bUndo_clicked();
 
 private:

@@ -50,9 +50,9 @@ void Files::xml_writer(QString fileName)
     xmlWriter.writeStartElement("circuit");
     xmlWriter.writeAttribute("id",mycircuit->circuit_id);
 
-    xmlWriter.writeStartElement("roads");
-    if(mycircuit->circuit_road_list.count()>0){
-        for(int i=0;i<mycircuit->circuit_road_list.count();i++){ //write roads
+    if(mycircuit->circuit_road_list.count()>0){ //write roads
+        xmlWriter.writeStartElement("roads");
+        for(int i=0;i<mycircuit->circuit_road_list.count();i++){ //write road
             xmlWriter.writeStartElement("road");
             xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_id);
             for(int k=0;k<mycircuit->circuit_road_list.at(i)->road_path_list.count();k++){ //write paths
@@ -70,52 +70,52 @@ void Files::xml_writer(QString fileName)
                 xmlWriter.writeEndElement(); //paths_end
             }
 
-            xmlWriter.writeStartElement("rails");
-            if(mycircuit->circuit_road_list.at(i)->road_rail_list.count()>0){
+            if(mycircuit->circuit_road_list.at(i)->road_rail_list.count()>0){ //write rails
+                xmlWriter.writeStartElement("rails");
                 for(int r=0;r<mycircuit->circuit_road_list.at(i)->road_rail_list.count();r++){ //write rails
-            xmlWriter.writeStartElement("rail");
-            xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_id);
-            xmlWriter.writeStartElement("parameters");
-            for(int s=0;s<mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_parameters.count();s++){
-                xmlWriter.writeStartElement("parameter");
-                xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_parameters.at(s));
-                xmlWriter.writeAttribute("type",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_types.at(s));
-                xmlWriter.writeCharacters(mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_values.at(s));
-                xmlWriter.writeEndElement();
+                    xmlWriter.writeStartElement("rail");
+                    xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_id);
+                    xmlWriter.writeStartElement("parameters");
+                        for(int s=0;s<mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_parameters.count();s++){
+                            xmlWriter.writeStartElement("parameter");
+                            xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_parameters.at(s));
+                            xmlWriter.writeAttribute("type",mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_types.at(s));
+                            xmlWriter.writeCharacters(mycircuit->circuit_road_list.at(i)->road_rail_list.at(r)->rail_values.at(s));
+                            xmlWriter.writeEndElement();
+                        }
+                    xmlWriter.writeEndElement();
+                    xmlWriter.writeEndElement();
+                }
+                xmlWriter.writeEndElement(); // rails_end
             }
-            xmlWriter.writeEndElement();
-            xmlWriter.writeEndElement();
-        }
-            }
-            xmlWriter.writeEndElement(); // rails_end
 
-            xmlWriter.writeStartElement("signals");
-            if(mycircuit->circuit_road_list.at(i)->road_signal_list.count()>0){
+            if(mycircuit->circuit_road_list.at(i)->road_signal_list.count()>0){ //write signals
+                xmlWriter.writeStartElement("signals");
                 for(int t=0;t<mycircuit->circuit_road_list.at(i)->road_signal_list.count();t++){ //write rails
-            xmlWriter.writeStartElement("signal");
-            xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_id);
-            xmlWriter.writeStartElement("parameters");
-            for(int u=0;u<mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_parameters.count();u++){
-                xmlWriter.writeStartElement("parameter");
-                xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_parameters.at(u));
-                xmlWriter.writeAttribute("type",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_types.at(u));
-                xmlWriter.writeCharacters(mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_values.at(u));
-                xmlWriter.writeEndElement();
+                    xmlWriter.writeStartElement("signal");
+                    xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_id);
+                    xmlWriter.writeStartElement("parameters");
+                        for(int u=0;u<mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_parameters.count();u++){
+                            xmlWriter.writeStartElement("parameter");
+                            xmlWriter.writeAttribute("id",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_parameters.at(u));
+                            xmlWriter.writeAttribute("type",mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_types.at(u));
+                            xmlWriter.writeCharacters(mycircuit->circuit_road_list.at(i)->road_signal_list.at(t)->signal_values.at(u));
+                            xmlWriter.writeEndElement();
+                        }
+                    xmlWriter.writeEndElement();
+                    xmlWriter.writeEndElement();
+                }
+                xmlWriter.writeEndElement(); //signals_end
             }
-            xmlWriter.writeEndElement();
-            xmlWriter.writeEndElement();
-        }
-            }
-            xmlWriter.writeEndElement(); //signals_end
 
             xmlWriter.writeEndElement(); //road_end
         }
+        xmlWriter.writeEndElement(); //roads_end
     }
-    xmlWriter.writeEndElement(); //roads_end
 
-    xmlWriter.writeStartElement("intersections");
-    if(mycircuit->circuit_intersection_list.count()>0){
-        for(int j=0;j<mycircuit->circuit_intersection_list.count();j++){ //write intersections
+    if(mycircuit->circuit_intersection_list.count()>0){ //write intersections
+        xmlWriter.writeStartElement("intersections");
+        for(int j=0;j<mycircuit->circuit_intersection_list.count();j++){
             xmlWriter.writeStartElement("intersection");
             xmlWriter.writeAttribute("id",mycircuit->circuit_intersection_list.at(j)->intersection_id);
             xmlWriter.writeStartElement("parameters");
@@ -129,8 +129,8 @@ void Files::xml_writer(QString fileName)
             xmlWriter.writeEndElement();
             xmlWriter.writeEndElement(); //intersection_end
         }
-    }
-    xmlWriter.writeEndElement(); //intersections_end
+        xmlWriter.writeEndElement(); //intersections_end
+    }  
 
     xmlWriter.writeEndElement(); //circuit_end
     xmlWriter.writeEndDocument();

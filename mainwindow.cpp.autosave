@@ -25,7 +25,7 @@ void MainWindow::on_bLoad_clicked()
 {
     myfunctions->function_load();
     print_circuit();
-    ui->statusBar->showMessage("Circuit "+myfunctions->circuit_function->circuit_id+" loaded");
+    ui->statusBar->showMessage("Circuit " + myfunctions->circuit_function->circuit_id + " loaded");
 }
 
 void MainWindow::on_bSave_clicked()

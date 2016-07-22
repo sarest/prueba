@@ -252,6 +252,13 @@
   <tabstop>start_x</tabstop>
   <tabstop>start_y</tabstop>
   <tabstop>length</tabstop>
+  <tabstop>radius</tabstop>
+  <tabstop>bLoad</tabstop>
+  <tabstop>bSave</tabstop>
+  <tabstop>bClear</tabstop>
+  <tabstop>bConfirm</tabstop>
+  <tabstop>bUndo</tabstop>
+  <tabstop>bTest</tabstop>
   <tabstop>bRect</tabstop>
   <tabstop>bCurve</tabstop>
  </tabstops>

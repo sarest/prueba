@@ -5,6 +5,17 @@
 MyQGraphicsView::MyQGraphicsView(QWidget *parent) : QGraphicsView(parent)
 {
     scene = new QGraphicsScene();
+
+    /*// Add the vertical lines first, paint them red
+    for (int x=-5000; x<=5000; x+=10)
+        scene->addLine(x,0-5000,x,5000, QPen(Qt::green));
+
+    // Now add the horizontal lines, paint them green
+    for (int y=-5000; y<=5000; y+=10)
+        scene->addLine(-5000,y,5000,y, QPen(Qt::green));*/
+
+    scene->setBackgroundBrush(QBrush(QPixmap(":/imgs/grid.png")));
+
     this->setScene(scene);
 }
 

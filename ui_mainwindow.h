@@ -268,7 +268,14 @@ public:
         QWidget::setTabOrder(y1_value, start_x);
         QWidget::setTabOrder(start_x, start_y);
         QWidget::setTabOrder(start_y, length);
-        QWidget::setTabOrder(length, bRect);
+        QWidget::setTabOrder(length, radius);
+        QWidget::setTabOrder(radius, bLoad);
+        QWidget::setTabOrder(bLoad, bSave);
+        QWidget::setTabOrder(bSave, bClear);
+        QWidget::setTabOrder(bClear, bConfirm);
+        QWidget::setTabOrder(bConfirm, bUndo);
+        QWidget::setTabOrder(bUndo, bTest);
+        QWidget::setTabOrder(bTest, bRect);
         QWidget::setTabOrder(bRect, bCurve);
 
         retranslateUi(MainWindow);

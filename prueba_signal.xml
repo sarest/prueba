@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuit id="prueba_signal">
+    <roads>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">0</parameter>
+                    <parameter id="y_start" type="float">0</parameter>
+                    <parameter id="x_end" type="float">100</parameter>
+                    <parameter id="y_end" type="float">100</parameter>
+                </parameters>
+            </path>
+            <rails>
+                <rail id="0">
+                    <parameters>
+                        <parameter id="width" type="float">3.8</parameter>
+                        <parameter id="direction" type="integer">1</parameter>
+                    </parameters>
+                </rail>
+            </rails>
+            <signals>
+                <signal id="">
+                    <parameters/>
+                </signal>
+            </signals>
+        </road>
+        <road id="arc">
+            <path id="arc">
+                <parameters>
+                    <parameter id="x_start" type="float">100</parameter>
+                    <parameter id="y_start" type="float">100</parameter>
+                    <parameter id="radius" type="float">50</parameter>
+                    <parameter id="distance" type="float">100</parameter>
+                    <parameter id="x_center" type="float">135.355</parameter>
+                    <parameter id="y_center" type="float">64.6447</parameter>
+                    <parameter id="angle" type="float">2</parameter>
+                </parameters>
+            </path>
+            <rails>
+                <rail id="0">
+                    <parameters>
+                        <parameter id="width" type="float">3.8</parameter>
+                        <parameter id="direction" type="integer">1</parameter>
+                    </parameters>
+                </rail>
+            </rails>
+            <signals>
+                <signal id="">
+                    <parameters/>
+                </signal>
+            </signals>
+        </road>
+        <road id="straight_line">
+            <path id="straight_line">
+                <parameters>
+                    <parameter id="x_start" type="float">180</parameter>
+                    <parameter id="y_start" type="float">80</parameter>
+                    <parameter id="x_end" type="float">200</parameter>
+                    <parameter id="y_end" type="float">0</parameter>
+                </parameters>
+            </path>
+            <rails>
+                <rail id="0">
+                    <parameters>
+                        <parameter id="width" type="float">3.8</parameter>
+                        <parameter id="direction" type="integer">1</parameter>
+                    </parameters>
+                </rail>
+            </rails>
+            <signals>
+                <signal id="">
+                    <parameters/>
+                </signal>
+            </signals>
+        </road>
+    </roads>
+    <intersections>
+        <intersection id="straight_line_plus_arc">
+            <parameters>
+                <parameter id="from_road" type="string">straight_line</parameter>
+                <parameter id="to_road" type="string">arc</parameter>
+                <parameter id="type" type="string">direct</parameter>
+            </parameters>
+        </intersection>
+        <intersection id="arc_plus_straight_line">
+            <parameters>
+                <parameter id="from_road" type="string">arc</parameter>
+                <parameter id="to_road" type="string">straight_line</parameter>
+                <parameter id="type" type="string">direct</parameter>
+            </parameters>
+        </intersection>
+    </intersections>
+</circuit>

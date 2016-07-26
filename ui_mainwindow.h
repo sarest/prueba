@@ -66,8 +66,6 @@ public:
     QPushButton *bConfirm;
     QPushButton *bUndo;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *bSignal;
-    QSpacerItem *horizontalSpacer_3;
     QPushButton *bTest;
     QSpacerItem *horizontalSpacer;
     QMenuBar *menuBar;
@@ -264,15 +262,6 @@ public:
 
         function_layout->addItem(horizontalSpacer_2);
 
-        bSignal = new QPushButton(centralWidget);
-        bSignal->setObjectName(QStringLiteral("bSignal"));
-
-        function_layout->addWidget(bSignal);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        function_layout->addItem(horizontalSpacer_3);
-
         bTest = new QPushButton(centralWidget);
         bTest->setObjectName(QStringLiteral("bTest"));
 
@@ -334,7 +323,6 @@ public:
         bClear->setText(QApplication::translate("MainWindow", "CLEAR", 0));
         bConfirm->setText(QApplication::translate("MainWindow", "CONFIRM", 0));
         bUndo->setText(QApplication::translate("MainWindow", "UNDO", 0));
-        bSignal->setText(QApplication::translate("MainWindow", "SIGNAL", 0));
         bTest->setText(QApplication::translate("MainWindow", "TEST", 0));
     } // retranslateUi
 

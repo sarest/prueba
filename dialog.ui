@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>517</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>160</x>
+     <y>250</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -34,7 +34,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>91</width>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -46,10 +46,123 @@
     </font>
    </property>
    <property name="text">
-    <string>SIGNAL</string>
+    <string>NEW SIGNAL</string>
    </property>
   </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>476</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="parameter_ID2"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="signal_ID"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="parameter_value2"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>ParameterID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Parameter ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Parameter Value</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QLineEdit" name="parameter_value4"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Parameter ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Parameter Value</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Parameter Value</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="parameter_ID1"/>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLineEdit" name="parameter_value1"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="parameter_ID4"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Parameter ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="parameter_ID3"/>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Parameter Value</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QLineEdit" name="parameter_value3"/>
+    </item>
+   </layout>
+  </widget>
  </widget>
+ <tabstops>
+  <tabstop>signal_ID</tabstop>
+  <tabstop>parameter_ID1</tabstop>
+  <tabstop>parameter_value1</tabstop>
+  <tabstop>parameter_ID2</tabstop>
+  <tabstop>parameter_value2</tabstop>
+  <tabstop>parameter_ID3</tabstop>
+  <tabstop>parameter_value3</tabstop>
+  <tabstop>parameter_ID4</tabstop>
+  <tabstop>parameter_value4</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

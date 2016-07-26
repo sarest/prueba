@@ -10,7 +10,6 @@
 #include <QGraphicsEllipseItem>
 #include <QMouseEvent>
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -32,8 +31,6 @@ private slots:
     void on_bTest_clicked();
     void on_bConfirm_clicked();
     void on_bUndo_clicked();
-
-    void on_bSignal_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -116,6 +116,18 @@ void Functions::function_save_rails()
     }
 }
 
+void Functions::function_save_signals()
+{
+    Signal *mysignal = new Signal;
+    mysignal->signal_id = mydialog->signal_dialog->signal_id;
+    for(int i=0; i<mydialog->signal_dialog->signal_parameters.count(); i++){
+        mysignal->signal_parameters.append(mydialog->signal_dialog->signal_parameters.at(i));
+        mysignal->signal_values.append(mydialog->signal_dialog->signal_values.at(i));
+        mysignal->signal_types.append(mydialog->signal_dialog->signal_types.at(i));
+    }
+    mydoc->mycircuit->circuit_road_list.last()->road_signal_list.append(mysignal);
+}
+
 void Functions::function_rect_calculations(float x0, float y0, float x1, float y1)
 {
     float x = abs(x1-x0);
@@ -266,9 +278,11 @@ void Functions::function_delete_circuit()
 
 void Functions::function_signal()
 {
-    Dialog *mydialog = new Dialog;
-    if(mydialog->exec()==QDialog::Accepted)
+    if(mydialog->exec()==QDialog::Accepted){
         qDebug()<<"dialogo aceptado";
-    else
+        function_save_signals();
+    }
+    else{
         qDebug()<<"dialogo rechazado";
+    }
 }

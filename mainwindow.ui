@@ -226,26 +226,6 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="bSignal">
-        <property name="text">
-         <string>SIGNAL</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QPushButton" name="bTest">
         <property name="text">
          <string>TEST</string>
